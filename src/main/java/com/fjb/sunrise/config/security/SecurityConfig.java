@@ -20,7 +20,8 @@ public class SecurityConfig {
 
     private final CustomUserDetailService userDetailsService;
 
-    static final String[] PUBLIC_ENDPOINTS = {"/img/**", "/css/**", "/js/**", "/auth/**", "/health/**"};
+    static final String[] PUBLIC_ENDPOINTS = {"/img/**", "/css/**", "/js/**", "/auth/login",
+        "/auth/register", "/health/**"};
 
     static final String[] ALLOWED_METHODS = {"GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"};
 
@@ -48,7 +49,7 @@ public class SecurityConfig {
             )
             .logout(logout -> logout
                 .logoutUrl("/logout")
-                // .logoutSuccessUrl("/login")
+                 .logoutSuccessUrl("/sun/health")
                 .permitAll()
             )
             .sessionManagement(sessionManagement ->

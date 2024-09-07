@@ -29,14 +29,12 @@ public class Constants {
 
         public static final String HEALTH_URL = "/health";
 
-        public static final String CATEGORY_INDEX = "category/index";
+        public static final String INDEX = "/index";
         public static final String CATEGORY_REDIRECT = "redirect:/category";
       
         public static final String AUTH_REDIRECT_LOGIN = "redirect:/auth/login";
         public static final String AUTH_VIEW = "/auth/login";
         public static final String REGISTER_VIEW = "/auth/register";
-        public static final String LOGIN = "login";
-        public static final String ERROR_MESSAGE = "errorMessage";
 
         public static final String CODE_200 = "200";
         public static final String OK = "Ok";

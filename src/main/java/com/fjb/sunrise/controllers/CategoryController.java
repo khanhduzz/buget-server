@@ -19,24 +19,23 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/category")
 @RequiredArgsConstructor
 public class CategoryController {
+
     private final CategoryService categoryService;
 
     @GetMapping
     public ModelAndView index() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("categories", categoryService.getAllCategories());
-        modelAndView.setViewName(Constants.ApiConstant.CATEGORY_INDEX);
+        modelAndView.setViewName(Constants.ApiConstant.INDEX);
         return modelAndView;
     }
-
-    //create
 
     @PostMapping("/add")
     public ModelAndView addCategory(@ModelAttribute("categoryCreate")
                                     @Valid CategoryCreateDto categoryCreateDto,
                                     BindingResult result) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName(Constants.ApiConstant.CATEGORY_INDEX);
+        modelAndView.setViewName(Constants.ApiConstant.INDEX);
         if (result.hasErrors()) {
             return modelAndView;
         }
@@ -49,17 +48,15 @@ public class CategoryController {
     public ModelAndView addCategory() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("categoryCreate", new CategoryCreateDto());
-        modelAndView.setViewName(Constants.ApiConstant.CATEGORY_INDEX);
+        modelAndView.setViewName(Constants.ApiConstant.INDEX);
         return modelAndView;
     }
-
-    //update
 
     @PostMapping("/{id}")
     public ModelAndView updateCategory(@PathVariable("id") Long id, @ModelAttribute("categoryUpdate")
         @Valid CategoryUpdateDto categoryUpdateDto, BindingResult result) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName(Constants.ApiConstant.CATEGORY_INDEX);
+        modelAndView.setViewName(Constants.ApiConstant.INDEX);
         if (result.hasErrors()) {
             return modelAndView;
         }
@@ -67,8 +64,6 @@ public class CategoryController {
         modelAndView.setViewName(Constants.ApiConstant.CATEGORY_REDIRECT);
         return modelAndView;
     }
-
-    //change-status
 
     @PostMapping("/delete/{id}")
     public ModelAndView changeStatusCategory(@PathVariable("id") Long id) {
@@ -78,13 +73,11 @@ public class CategoryController {
         return modelAndView;
     }
 
-    //get-list
-
     @GetMapping("/all")
     public ModelAndView getList() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("category", categoryService.getAllCategories());
-        modelAndView.setViewName(Constants.ApiConstant.CATEGORY_INDEX);
+        modelAndView.setViewName(Constants.ApiConstant.INDEX);
         return modelAndView;
     }
 }
