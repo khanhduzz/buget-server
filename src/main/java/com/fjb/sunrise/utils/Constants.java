@@ -10,6 +10,7 @@ public class Constants {
 
         public static final String USER_NOT_FOUND = "USER_NOT_FOUND";
         public static final String USER_ALREADY_EXISTED = "USER_ALREADY_EXISTED";
+        public static final String USERNAME_OR_PHONE_ALREADY_EXISTED = "USERNAME_OR_PHONE_ALREADY_EXISTED";
         public static final String CATEGORY_NOT_FOUND = "CATEGORY_NOT_FOUND";
         public static final String CATEGORY_ALREADY_EXISTED = "CATEGORY_ALREADY_EXISTED";
     }
@@ -32,9 +33,9 @@ public class Constants {
         public static final String CATEGORY_REDIRECT = "redirect:/category";
       
         public static final String AUTH_REDIRECT_LOGIN = "redirect:/auth/login";
-        public static final String AUTH_VIEW = "/auth/loginAndRegister";
-        public static final String REGISTER_ATTRIBUTE = "register";
-        public static final String LOGIN_ATTRIBUTE = "login";
+        public static final String AUTH_VIEW = "/auth/login";
+        public static final String REGISTER_VIEW = "/auth/register";
+        public static final String LOGIN = "login";
         public static final String ERROR_MESSAGE = "errorMessage";
 
         public static final String CODE_200 = "200";

@@ -1,6 +1,7 @@
 package com.fjb.sunrise.models;
 
 import com.fjb.sunrise.enums.ERole;
+import com.fjb.sunrise.enums.EStatus;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -56,6 +57,9 @@ public class User extends AuditEntity<String> implements Serializable, UserDetai
 
     @Enumerated(EnumType.STRING)
     private ERole role;
+
+    @Enumerated(EnumType.STRING)
+    private EStatus status;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     private Set<Transaction> transactions;
