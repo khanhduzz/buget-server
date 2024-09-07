@@ -21,7 +21,7 @@ public class AuthController {
     private final UserService userService;
 
     @GetMapping("/login")
-    public ModelAndView login () {
+    public ModelAndView login() {
         return new ModelAndView("auth/login");
     }
 
