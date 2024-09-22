@@ -62,4 +62,11 @@ public class CategoryServiceImpl implements CategoryService {
             .stream().map(categoryMapper::toCategoryResponseDto)
             .toList();
     }
+
+    @Override
+    public CategoryResponseDto getCategory(Long id) {
+        return categoryRepository.findById(id)
+            .map(categoryMapper::toCategoryResponseDto)
+            .orElseThrow(() -> new NotFoundException(Constants.ErrorCode.CATEGORY_NOT_FOUND));
+    }
 }

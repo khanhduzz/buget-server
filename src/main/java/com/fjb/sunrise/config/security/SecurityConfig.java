@@ -49,7 +49,7 @@ public class SecurityConfig {
             )
             .logout(logout -> logout
                 .logoutUrl("/logout")
-                 .logoutSuccessUrl("/sun/health")
+                 .logoutSuccessUrl("/health")
                 .permitAll()
             )
             .sessionManagement(sessionManagement ->

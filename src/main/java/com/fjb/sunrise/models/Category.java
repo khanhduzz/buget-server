@@ -33,6 +33,7 @@ public class Category extends AuditEntity<String> implements Serializable {
     @OneToOne
     private Transaction transaction;
 
+    @Builder.Default
     @Column(name = "is_activate")
     private boolean isActivate = true;
 }

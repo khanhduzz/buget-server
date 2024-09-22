@@ -2,6 +2,7 @@ package com.fjb.sunrise.controllers;
 
 import com.fjb.sunrise.dtos.requests.CategoryCreateDto;
 import com.fjb.sunrise.dtos.requests.CategoryUpdateDto;
+import com.fjb.sunrise.dtos.responses.CategoryResponseDto;
 import com.fjb.sunrise.services.CategoryService;
 import com.fjb.sunrise.utils.Constants;
 import jakarta.validation.Valid;
@@ -39,7 +40,8 @@ public class CategoryController {
         if (result.hasErrors()) {
             return modelAndView;
         }
-        categoryService.createCategory(categoryCreateDto);
+        CategoryResponseDto categoryResponseDto = categoryService.createCategory(categoryCreateDto);
+        modelAndView.addObject("categoryResponseDto", categoryResponseDto);
         modelAndView.setViewName(Constants.ApiConstant.CATEGORY_REDIRECT);
         return modelAndView;
     }
@@ -60,7 +62,8 @@ public class CategoryController {
         if (result.hasErrors()) {
             return modelAndView;
         }
-        categoryService.updateCategory(id, categoryUpdateDto);
+        CategoryResponseDto categoryResponseDto =  categoryService.updateCategory(id, categoryUpdateDto);
+        modelAndView.addObject("categoryResponseDto", categoryResponseDto);
         modelAndView.setViewName(Constants.ApiConstant.CATEGORY_REDIRECT);
         return modelAndView;
     }
