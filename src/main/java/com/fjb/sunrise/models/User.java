@@ -64,7 +64,7 @@ public class User extends AuditEntity<String> implements Serializable, UserDetai
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Set<Transaction> transactions;
 
-    public void addTransaction (Transaction transaction) {
+    public void addTransaction(Transaction transaction) {
         transactions.add(transaction);
     }
 

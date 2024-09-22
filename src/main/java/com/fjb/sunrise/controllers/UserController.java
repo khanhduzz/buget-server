@@ -42,8 +42,7 @@ public class UserController {
             modelAndView.addObject("userCreate", userCreateDTO);
             return modelAndView;
         }
-        UserResponseDTO userResponseDTO = userService.addUser(userCreateDTO);
-        modelAndView.addObject("userResponseDTO", userResponseDTO);
+        userService.addUser(userCreateDTO);
         return modelAndView;
     }
 
@@ -65,16 +64,14 @@ public class UserController {
             modelAndView.addObject("userUpdate", userUpdateDTO);
             return modelAndView;
         }
-        UserResponseDTO userResponseDTO = userService.updateUser(id, userUpdateDTO);
-        modelAndView.addObject("userResponseDTO", userResponseDTO);
+        userService.updateUser(id, userUpdateDTO);
         return modelAndView;
     }
 
     @GetMapping("/disable/{id}")
     public ModelAndView disable(@PathVariable("id") Long id) {
         ModelAndView modelAndView = new ModelAndView("user/index");
-        UserResponseDTO userResponseDTO = userService.disableUser(id);
-        modelAndView.addObject("userResponseDTO", userResponseDTO);
+        userService.disableUser(id);
         return modelAndView;
     }
 }

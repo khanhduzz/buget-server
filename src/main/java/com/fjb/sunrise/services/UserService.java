@@ -13,9 +13,9 @@ public interface UserService {
 
     UserResponseDTO getUserById(Long id);
 
-    UserResponseDTO updateUser(Long id, UserUpdateDTO userUpdateDTO);
+    void updateUser(Long id, UserUpdateDTO userUpdateDTO);
 
-    UserResponseDTO addUser(UserCreateDTO userCreateDTO);
+    void addUser(UserCreateDTO userCreateDTO);
 
-    UserResponseDTO disableUser(Long id);
+    void disableUser(Long id);
 }

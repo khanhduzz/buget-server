@@ -62,34 +62,33 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserResponseDTO getUserById(Long id) {
         User user = userRepository.findById(id)
-            .orElseThrow(()-> new EntityNotFoundException(Constants.ErrorCode.USER_NOT_FOUND));
+            .orElseThrow(() -> new EntityNotFoundException(Constants.ErrorCode.USER_NOT_FOUND));
         return userMapper.toUserResponseDTO(user);
     }
 
     @Override
-    public UserResponseDTO updateUser(Long id, UserUpdateDTO userUpdateDTO) {
+    public void updateUser(Long id, UserUpdateDTO userUpdateDTO) {
         User user = userRepository.findById(id)
-            .orElseThrow(()-> new EntityNotFoundException(Constants.ErrorCode.USER_NOT_FOUND));
-        user = userMapper.updateUser(user, userUpdateDTO);
-        return userMapper.toUserResponseDTO(userRepository.save(user));
+            .orElseThrow(() -> new EntityNotFoundException(Constants.ErrorCode.USER_NOT_FOUND));
+        userMapper.updateUser(user, userUpdateDTO);
+        userRepository.save(user);
     }
 
     @Override
-    public UserResponseDTO addUser(UserCreateDTO userCreateDTO) {
+    public void addUser(UserCreateDTO userCreateDTO) {
         if (userRepository.existsUserByEmailOrPhone(userCreateDTO.getEmail(), userCreateDTO.getPhone())) {
             throw new DuplicatedException(Constants.ErrorCode.USERNAME_OR_PHONE_ALREADY_EXISTED);
         }
         User user = userMapper.createToUser(userCreateDTO);
         user.setPassword(passwordEncoder.encode(userCreateDTO.getPassword()));
-        return userMapper.toUserResponseDTO(userRepository.save(user));
+        userRepository.save(user);
     }
 
     @Override
-    public UserResponseDTO disableUser(Long id) {
+    public void disableUser(Long id) {
         User user = userRepository.findById(id)
-            .orElseThrow(()-> new EntityNotFoundException(Constants.ErrorCode.USER_NOT_FOUND));
+            .orElseThrow(() -> new EntityNotFoundException(Constants.ErrorCode.USER_NOT_FOUND));
         user.setStatus(EStatus.NOT_ACTIVE);
-        return userMapper.toUserResponseDTO(userRepository.save(user));
+        userRepository.save(user);
     }
-
 }
