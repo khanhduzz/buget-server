@@ -13,6 +13,7 @@ public class Constants {
         public static final String USERNAME_OR_PHONE_ALREADY_EXISTED = "USERNAME_OR_PHONE_ALREADY_EXISTED";
         public static final String CATEGORY_NOT_FOUND = "CATEGORY_NOT_FOUND";
         public static final String CATEGORY_ALREADY_EXISTED = "CATEGORY_ALREADY_EXISTED";
+        public static final String TRANSACTION_NOT_FOUND = "TRANSACTION_NOT_FOUND";
     }
 
     public static final class PageableConstant {
@@ -27,14 +28,14 @@ public class Constants {
 
         private ApiConstant() {}
 
-        public static final String HEALTH_URL = "/health";
+        public static final String HEALTH_URL = "health";
 
-        public static final String INDEX = "/index";
+        public static final String INDEX = "index";
         public static final String CATEGORY_REDIRECT = "redirect:/category";
       
         public static final String AUTH_REDIRECT_LOGIN = "redirect:/auth/login";
-        public static final String AUTH_VIEW = "/auth/login";
-        public static final String REGISTER_VIEW = "/auth/register";
+        public static final String AUTH_VIEW = "auth/login";
+        public static final String REGISTER_VIEW = "auth/register";
 
         public static final String CODE_200 = "200";
         public static final String OK = "Ok";

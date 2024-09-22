@@ -2,7 +2,10 @@
 <div th:fragment="tab-bar" class="mt-3">
     <ul class="nav flex-column">
         <li class="nav-item">
-            <a class="btn btn-outline-success w-100 mb-2" th:href="@{/health}" th:classappend="${activeTab == 'employee'} ? ' active' : ''">List</a>
+            <a class="btn btn-outline-success w-100 mb-2" th:href="@{/health}" th:classappend="${activeTab == 'employee'} ? ' active' : ''">General</a>
+        </li>
+        <li class="nav-item">
+            <a class="btn btn-outline-success w-100 mb-2" th:href="@{/health}" th:classappend="${activeTab == 'add'} ? ' active' : ''">Category</a>
         </li>
         <li class="nav-item">
             <a class="btn btn-outline-success w-100 mb-2" th:href="@{/health}" th:classappend="${activeTab == 'add'} ? ' active' : ''">User</a>

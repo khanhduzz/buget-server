@@ -61,8 +61,12 @@ public class User extends AuditEntity<String> implements Serializable, UserDetai
     @Enumerated(EnumType.STRING)
     private EStatus status;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Set<Transaction> transactions;
+
+    public void addTransaction (Transaction transaction) {
+        transactions.add(transaction);
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
